@@ -1,0 +1,96 @@
+<div class="jumbotron">
+  <div class="container">
+    <a id="icon" class="burger">
+      <span class="hamburger bun top"></span>
+      <span class="hamburger chez"></span>
+      <span class="hamburger meet"></span>
+      <span class="hamburger lettus"></span>
+      <span class="hamburger bun bottom"></span>
+    </a>
+    <h1 id="title">Eat-da-burger!</h1>
+  </div>
+  <p>For all the burger lovers, keep track of all the burgers you wanna eat!</p>
+  <div class="row">
+    <div class="col-lg-6">
+      <form class="create-form input has-success">
+        <input type="text" class="form-control" id="restaurant-input" name="restaurant_name" placeholder="Enter Name of Restaurant">
+      </form>
+    </div>
+    <div class="col-lg-6">
+      <form class="create-form input-group has-success">
+        <input type="text" class="form-control" id="burger-input" name="burger_name" placeholder="Enter Name of Burger">
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="submit">Add Burger</button>
+        </span>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-md-4">
+    <div class="panel panel-success">
+      <div class="panel-heading">Burgers waiting to be eaten!</div>
+      <div class="panel-body">
+        <ul class="list-group">
+          {{#each burgers}} 
+            {{#unless devoured}} 
+            {{#unless rating}} 
+              {{> burgers/burger-block devoured=true rating=true}} 
+            {{/unless}}
+            {{/unless}} 
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col col-md-4">
+    <div class="panel panel-success">
+      <div class="panel-heading">Delicious!</div>
+      <div class="panel-body">
+        <ul class="list-group">
+          {{#each burgers}} 
+            {{#if devoured}}
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col col-md-9">
+                    <p id="restaurant-name">{{restaurant_name}}</p>
+                    <p id="burger-name">{{burger_name}}</p>
+                  </div>
+                  <div class="col col-md-3">
+                    <button type="button" class="delete-burger btn btn-success pull-right" data-id="{{this.id}}">
+                      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </li>
+            {{/if}} 
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col col-md-4">
+    <div class="panel panel-success">
+      <div class="panel-heading">It was aight...</div>
+      <div class="panel-body">
+        <ul class="list-group">
+          {{#each burgers}} 
+            {{#if rating}}
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col col-md-9">
+                    <p id="restaurant-name">{{restaurant_name}}</p>
+                    <p id="burger-name">{{burger_name}}</p>
+                  </div>
+                  <div class="col col-md-3">
+                    <button type="button" class="delete-burger btn btn-success pull-right" data-id="{{this.id}}">
+                      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                    </button>
+                  </div>
+              </li>
+            {{/if}} 
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>

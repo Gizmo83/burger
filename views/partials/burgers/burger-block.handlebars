@@ -1,0 +1,21 @@
+<li class="list-group-item">
+	<div class="row">
+		<div class="col col-md-7">
+			<p id="restaurant-name">{{restaurant_name}}</p>
+			<p id="burger-name">{{burger_name}}</p>
+		</div>
+		<div class="col col-md-5">
+			<div class="btn-group pull-right" role="group" aria-label="btn-group">
+				<button type="button" class="devour btn btn-success" data-id="{{id}}" data-newdevoured="{{devoured}}">
+					<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="down btn btn-success" data-id="{{id}}" data-newrating="{{rating}}">
+					<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+				</button>
+				<button type="button" class="delete-burger btn btn-success" data-id="{{this.id}}">
+					<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+</li>
